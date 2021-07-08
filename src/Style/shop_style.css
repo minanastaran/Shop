@@ -1,0 +1,84 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a, *:link {
+  color: inherit !important;
+  -webkit-text-decoration: auto;
+          text-decoration: auto;
+}
+
+/*------------------- Header --------------------*/
+.Header {
+  background-color: #414151;
+  height: 56px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  direction: rtl;
+}
+
+.header_container {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header_menu_list .active {
+  color: whitesmoke;
+  -webkit-text-decoration: auto;
+          text-decoration: auto;
+}
+
+.header_menu_list ul {
+  margin: 0px;
+}
+
+.header_menu_list ul li {
+  display: inline-block;
+  padding: 8px 10px;
+}
+
+.header_menu_list ul li:hover {
+  color: whitesmoke;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+/*----------------- BodyPages -------------------*/
+.BodyPages {
+  min-height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/*------------------- Footer --------------------*/
+.Footer {
+  background-color: #cacaca;
+  text-align: center;
+}
+
+.footer_container {
+  padding: 24px 8px;
+}
+/*# sourceMappingURL=shop_style.css.map */

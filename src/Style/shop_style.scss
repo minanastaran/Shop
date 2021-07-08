@@ -1,0 +1,54 @@
+body{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+a , *:link{
+    color: inherit !important;
+    text-decoration: auto;
+}
+/*------------------- Header --------------------*/
+.Header{
+    background-color: #414151;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    direction: rtl;
+}
+.header_container{
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+.header_menu_list .active {
+    color: whitesmoke;
+    text-decoration: auto;
+}
+.header_menu_list ul{
+    margin:0px
+}
+.header_menu_list ul li{
+    display: inline-block;
+    padding: 8px 10px;
+}
+.header_menu_list ul li:hover{
+    color: whitesmoke;
+    // border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+/*----------------- BodyPages -------------------*/
+.BodyPages{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*------------------- Footer --------------------*/
+.Footer{
+    background-color: #cacaca;
+    text-align: center;
+}
+.footer_container{
+    padding: 24px 8px;
+}
