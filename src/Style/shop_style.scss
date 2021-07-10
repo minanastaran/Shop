@@ -1,3 +1,6 @@
+@import '../View/Products/products';
+@import '../View/ProductDetails/ProductDetails';
+
 body{
     margin:0px;
     padding: 0px;
@@ -20,8 +23,8 @@ a , *:link{
     justify-content: space-between;
     align-items: center;
 }
-.header_menu_list .active {
-    color: whitesmoke;
+.header_menu_list ul li .active {
+    color: whitesmoke !important;
     text-decoration: auto;
 }
 .header_menu_list ul{
@@ -43,6 +46,8 @@ a , *:link{
     display: flex;
     align-items: center;
     justify-content: center;
+    // direction: rtl;
+    padding: 50px 0px 80px;
 }
 /*------------------- Footer --------------------*/
 .Footer{

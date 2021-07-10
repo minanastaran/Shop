@@ -2,26 +2,24 @@ import React from 'react'
 import { Container } from '@material-ui/core';
 import {NavLink} from 'react-router-dom';
 
-const Header = () => {
-    const id=1;
-
+const Header = ({match}) => {
     return (
         <div className="Header">
             <Container className="header_container">
                 <div className="header_menu_list">
                     <ul>
                         <li>
-                            <NavLink to="/">
+                            <NavLink to="/" exact>
                             صفحه اصلی
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='/Products'>
+                            <NavLink to='/Products' exact>
                             فروشگاه
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={`/Product`}>
+                            <NavLink to={`/Product/`} exact>
                             سایر
                             </NavLink>
                         </li>

@@ -1,3 +1,56 @@
+.product_card_content {
+  grid-column-gap: 30px;
+}
+
+.product_card_content .link {
+  font-size: 14px;
+  color: gray !important;
+}
+
+.product_card_content .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product_card_content .footer svg {
+  color: #d20a0a;
+}
+
+.test {
+  color: red;
+  font-size: 18px;
+}
+
+.productDetails {
+  padding: 20px !important;
+  height: auto;
+}
+
+.productDetails .MuiCardMedia-media {
+  width: 50%;
+  height: auto;
+}
+
+.productDetails .priceBox {
+  margin-right: 20px;
+  background-color: yellowgreen;
+  width: auto;
+  max-width: 100px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 8px 10px;
+}
+
+.productDetails .priceBox_text {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -36,8 +89,8 @@ a, *:link {
           align-items: center;
 }
 
-.header_menu_list .active {
-  color: whitesmoke;
+.header_menu_list ul li .active {
+  color: whitesmoke !important;
   -webkit-text-decoration: auto;
           text-decoration: auto;
 }
@@ -70,6 +123,7 @@ a, *:link {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 50px 0px 80px;
 }
 
 /*------------------- Footer --------------------*/

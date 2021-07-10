@@ -1,11 +1,11 @@
 import React from 'react'
-import { Container } from '@material-ui/core';
+import { Container , TextField } from '@material-ui/core';
 
 const Home = () => {
     return (
         <Container>
             <div className="BodyPages">
-                Home
+                <TextField id="outlined-basic" label="نام و نام خانوادگی" variant="outlined" />
             </div> 
         </Container>
     )

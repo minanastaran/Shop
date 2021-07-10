@@ -1,17 +1,17 @@
 import React from 'react'
-import {Route} from 'react-router-dom'
+import {Switch , Route} from 'react-router-dom'
 //Pages
 import Home from '../View/Home'
-import Products from '../View/Products'
-import ProductDetails from '../View/ProductDetails'
+import Products from '../View/Products/Products'
+import ProductDetails from '../View/ProductDetails/ProductDetails'
 
 const BodyPages = () => {
     return (
-        <div>
+        <Switch>
             <Route path='/' exact component={Home}/>
             <Route path='/Products' exact component={Products}/>
-            <Route path='/Product' exact component={ProductDetails}/>
-        </div>
+            <Route path='/Product/:id' exact component={ProductDetails}/>
+        </Switch>
     )
 }
 export default BodyPages;
