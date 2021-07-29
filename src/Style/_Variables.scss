@@ -1,0 +1,138 @@
+// colors
+$white: #fff;
+$green: #6FFBBA;
+$black:#000;
+$gray:#475974;
+// $dark-gray:#9f9f9f;
+$main-primary:#2d323e;
+$background-color: #eaeaea;
+/*-------*/
+$bluebtn:#30A4E2;
+$lightcolor:#FAFAFA;
+$darkbtncolor:#475974;
+$disablebtn:#b6d9f4;
+$greenbtn:#13C356;
+$darkbluebtn:#2ea5d9;
+$gray:#9F9F9F;
+
+body{
+    &[dir=rtl]{
+        --dir:rtl;
+        --dir-ltr: ltr;
+        --left : left;
+        --right : right;
+        --transform-direction :1;
+    }
+    &[dir=ltr]{
+        --dir: ltr;
+        --dir-ltr: rtl;
+        --left : right;
+        --right : left;
+        --transform-direction :-1;
+    }
+}
+@mixin RLDir($prop,$dir,$value){
+    @if ($prop!=null){
+        @if ($dir==left){
+            body[dir=rtl] & {
+                #{$prop}-left : $value
+            }
+            body[dir=ltr] & {
+                #{$prop}-right : $value
+            }
+        }
+        @else {
+            body[dir=rtl] & {
+                #{$prop}-right : $value
+            }
+            body[dir=ltr] & {
+                #{$prop}-left : $value
+            }
+        }
+    }
+    @else{
+        @if ($dir==left){
+            body[dir=rtl] & {
+                left : $value
+            }
+            body[dir=ltr] & {
+                right : $value
+            }
+        }
+        @else {
+            body[dir=rtl] & {
+                right : $value
+            }
+            body[dir=ltr] & {
+                left : $value
+            }
+        }
+    }
+}
+
+
+
+$dir:var(--dir);
+$dir-ltr:var(--dir-ltr);
+$left : var(--left);
+$right :var(--right);
+$transform-direction :var(--transform-direction);
+
+/*-------------------------------- fonts --------------------------------------*/
+@mixin fontstyle ($color,$size,$weight) {
+    @if ($color!=null){
+        color: $color !important;
+        font-size: $size !important;
+        font-weight: $weight !important;
+    }
+    @else{
+        font-size: $size !important;
+        font-weight: $weight !important;
+    }
+}
+
+/*-------------------------------- button --------------------------------------*/
+
+@mixin btnstyle ($bgcolor,$color,$font,$weight,$height,$width) {
+    background-color:$bgcolor !important;
+    color:$color !important;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2) !important;
+    font-size: $font !important;
+    font-weight:$weight !important;
+    height: $height!important;
+    width: $width;
+    white-space: nowrap;
+    cursor: pointer !important;
+}
+@mixin simplebtn ($bgcolor,$color,$font,$weight,$height,$width) {
+    background-color:$bgcolor !important;
+    color:$color !important;
+    font-size: $font !important;
+    font-weight:$weight !important;
+    height: $height!important;
+    width: $width;
+    white-space: nowrap;
+    cursor: pointer !important;
+}
+
+.bluebtn{
+    cursor: pointer;
+    border: solid 1px #30a4e2 !important;
+    @include btnstyle ($bluebtn,$lightcolor,14px,bold,36px,auto);
+    &:hover{
+        background-color: #57C0ED !important;
+    }
+}
+
+.darkbtn{
+    border: solid 1px #707070 !important;
+    @include btnstyle ($darkbtncolor,$lightcolor,14px,bold,36px,auto);
+    &:hover{
+        background-color: $darkbtncolor !important;
+    }
+}
+
+
+@media (max-width:600px) {
+    
+}

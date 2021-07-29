@@ -1,5 +1,8 @@
 .product_card_content{
     grid-column-gap:30px;
+    .card{
+        width: 300px !important;
+    }
     .link{
         font-size: 14px;
         color: gray !important;

@@ -1,7 +1,7 @@
-// import axios fom 'axios';
+import axios from 'axios';
 
 const BaseUrl = axios.create({
-    BaseUrl:'',
+    BaseUrl:'http://localhost:5000/',
 })
 
 export default BaseUrl;
@@ -9,3 +9,4 @@ export default BaseUrl;
 //to use
 //import BaseUrl from '../api/baseurl.jsx
 //axios.post('/user);
+

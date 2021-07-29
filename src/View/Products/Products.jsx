@@ -1,61 +1,59 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import axios from '../../api/baseurl';
 import { Container, Grid , IconButton} from '@material-ui/core';
-import { Link } from 'react-router-dom'
-import products from '../../DataBase/DBtest';
-//component
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-//icon
-import  {DeleteForever} from '@material-ui/icons';
+// import products from '../../DataBase/DBtest';
+import Card from '../../Components/Card'
 
 
 
 const Products = () => {
+
+    const UserData=JSON.parse(window.localStorage.getItem("UserData"))
+    const [products,setproducts]=useState(null)
+    useEffect(() => {
+        axios.get('http://localhost:5000/Products/')
+        .then(function (response) {
+            //handle success
+            console.log(response.data.data);
+            setproducts(response.data.data)
+        })
+        .catch(function (response) {
+            //handle error
+            console.log(response);
+        });
+    }, [])
+    
+    // alert( JSON.stringify(UserData.userId) + ' - ' + products[0].creator)
+    const DeletePost=(delete_productById)=>{
+        axios.delete(`http://localhost:5000/Products/Delete`,{
+            data:{
+                'id':delete_productById
+            },
+            headers: {
+                'Authorization': `Basic ${UserData.token}` 
+              }
+        })
+        .then(function (response) {
+            //handle success
+            console.log(response.data.message);
+            setproducts(prevproducts =>
+                prevproducts.filter(post => post._id !== delete_productById)    
+            )
+        })
+        .catch(function (response) {
+            //handle error
+            console.log(response);
+        });
+    }
+
     return (
         <Container>
             <Grid className="BodyPages product_card_content">
-                {products.map((item, index) => (
-                    <Grid key={index} >
-                        <Card >
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    alt="Contemplative Reptile"
-                                    height="140"
-                                    image={item.image}
-                                    title={item.name}
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        {item.name}
-                                    </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        {item.desc}
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                            <CardActions className='footer'>
-                                {/* <Button size="small" color="primary">
-                        Share
-                      </Button> */}
-                                <Link 
-                                size="small" 
-                                color="primary" 
-                                className='link'
-                                to={`/Product/${item._id}`}>
-                                    اطلاعات بیشتر
-                                </Link>
-                                <IconButton  aria-label="add an alarm">
-                                  <DeleteForever />
-                                </IconButton>
-                            </CardActions> 
-                        </Card>
-                    </Grid>
-                ))}
+                {products && products.map((item, index) => {
+                    return(
+                        <Card key={index} UserData={UserData} item={item} DeletePost={DeletePost}/>
+                    )    
+                })}
             </Grid>
         </Container>
     )

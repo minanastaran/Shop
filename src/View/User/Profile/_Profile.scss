@@ -1,0 +1,56 @@
+.Profile{
+    display: flex;
+    flex-direction: row;
+    margin:50px 0px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 20px;
+    gap: 20px;
+
+    
+    div{
+        // flex-grow: 1;
+        // flex-shrink: 1;
+        flex-basis: 100px;
+    }
+    div:nth-of-type(2){flex-grow: 4;}
+
+    .imagebox{
+        position: relative;
+    }
+
+    &_image{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px double orange;
+    }
+    &_editIcon{
+        position: absolute;
+        top: 66%;
+        left: 70%;
+        background-color: white;
+        padding: 5px;
+        border-radius: 50%;
+        border: 1px solid orange;
+        svg{
+            color:orange
+        }
+    }
+    &_products{
+        border-radius: 20px;
+        padding: 35px 20px;
+        box-shadow: 0 0 10px silver;
+        display: flex;
+    }
+    &_desc{
+        display: flex;
+        h3{
+            font-size: 18px;
+            font-weight: bold;
+        }
+        h4{
+            font-size: 16px;
+        }
+    }
+}

@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
 import { StylesProvider, jssPreset } from '@material-ui/core/styles';
@@ -7,28 +8,40 @@ import theme from './Theme'
 import Header from './Layout/Header'
 import Footer from './Layout/Footer'
 import BodyPages from './Layout/BodyPages'
+//component
+import { LanguageProvider } from './Languages/Provider.js';
 //style
 import './Style/shop_style.css'
 
 function App() {
+  const lang = window.localStorage.getItem('lang');
+  const UserData = window.localStorage.getItem('UserData')
+  console.log(UserData +" <<")
+  
+  useEffect(() => {
+    document.body.dir = lang === "fa" ? "rtl" : "ltr";
 
-const lang='fa'
-// Configure JSS
-const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
-function RTL(props) {
+  }, [lang])
+  
+  // Configure JSS ------------------------------------------------
+  const jss = create({ plugins: [...jssPreset().plugins, rtl({enabled:lang==='fa'})] });
+  function RTL(props) {
+    return (
+      <StylesProvider jss={jss}>
+        {props.children}
+      </StylesProvider>
+    );
+  }
+
   return (
-    <StylesProvider jss={jss}>
-      {props.children}
-    </StylesProvider>
-  );
-}
-  return (
-     <RTL>
-         <ThemeProvider theme={{ ...theme, direction: lang === "fa" ? 'rtl' : 'ltr' }}>
+    <RTL>
+      <ThemeProvider theme={{ ...theme, direction: lang === "fa" ? 'rtl' : 'ltr' }}>
+        <LanguageProvider >
           <Header />
-            <BodyPages />
+          <BodyPages />
           <Footer />
-          </ThemeProvider>
+        </LanguageProvider>
+      </ThemeProvider>
     </RTL>
   );
 }
