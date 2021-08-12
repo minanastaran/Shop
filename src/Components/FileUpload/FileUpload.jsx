@@ -1,9 +1,6 @@
-const FileUpload = ({ formatfile, multiple, showfilename, Upload_Func, showimg, from }) => {
+const FileUpload = ({ title,formatfile, multiple, showfilename, Upload_Func, showimg, from }) => {
 
   const valid = from==='general'? null :showfilename.includes("type")
-  // console.log(showfilename.length);
-  // console.log(showimg);
-  // console.log(valid);
 
   return (
     <label className='fileupload'>
@@ -21,7 +18,7 @@ const FileUpload = ({ formatfile, multiple, showfilename, Upload_Func, showimg, 
               :
             <>
             <span className='fileupload_text'>
-              { "برای آپلود فایل کلیک کنید."}
+              {title}
             </span>
             <span>
               {showfilename==="type" && "فایل نامعتبر میباشد" }
@@ -47,7 +44,7 @@ const FileUpload = ({ formatfile, multiple, showfilename, Upload_Func, showimg, 
         :
         <>
           <span className='fileupload_text'>
-            {"برای آپلود فایل کلیک کنید."}
+            {title}
           </span>
           <span>
             {valid && "فایل نامعتبر میباشد"}

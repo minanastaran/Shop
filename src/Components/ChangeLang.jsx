@@ -11,13 +11,15 @@ export default function LanguageSelector({match}) {
   const languagehandler=(state)=>{
     if(state==='fa'){
       window.localStorage.setItem('lang', 'fa');
-      document.body.dir = "rtl";
       userLanguageChange('fa')
+      // window.location.reload()    //get new data from localstorage
+      document.body.dir = "rtl";
     }
     else{
       window.localStorage.setItem('lang', 'en');
-      document.body.dir = "ltr";
       userLanguageChange('en')
+        // window.location.reload()    //get new data from localstorage
+      document.body.dir = "ltr";
     }
   }
 

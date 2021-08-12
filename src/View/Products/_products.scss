@@ -1,7 +1,9 @@
 .product_card_content{
-    grid-column-gap:30px;
+    flex-flow: wrap; 
+    gap: 30px 20px;
     .card{
         width: 300px !important;
+        min-width: 300px;
     }
     .link{
         font-size: 14px;
@@ -9,13 +11,30 @@
     }
     .footer{
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        div{
+            width: 100% !important;
+        }
+        .actions{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
         svg{
             color:#d20a0a
+        }
+        button{
+            margin:0;
         }
     }
 }
 .test{
     color:red;
     font-size: 18px;
+}
+
+.filterbox li{
+    display: inline-block;
+    margin: 0px 10px;
 }

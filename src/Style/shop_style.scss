@@ -1,11 +1,18 @@
 // @import '../View/AddProduct/AddProduct';
+@import './Variables';
+
+//component
+@import '../Components/FileUpload/FileUpload';
+@import '../Components/Modal/modal';
+@import '../Components/GallerySlider/GallerySlider';
+
 @import '../View/Products/products';
 @import '../View/ProductDetails/ProductDetails';
-@import '../Components/FileUpload/FileUpload';
 @import '../View/User/User';
-@import './Variables';
 @import '../View/User/Profile/Profile';
-@import '../Components/Modal/modal';
+@import '../View/Test/Test';
+@import '../View/Admin/Addlist';
+@import '../View/MyBag/MyBag';
 
 body{
     margin:0px;
@@ -115,12 +122,9 @@ a , *:link{
 
 
 
-// .grid [MuiGrid-item]{
-//     background-color: lightskyblue;
-//     display: flex;
-//     justify-content: space-around;
-//     flex-direction: column;
-// }
+
+
+
 /*------------------- Footer --------------------*/
 .Footer{
     background-color: #cacaca;

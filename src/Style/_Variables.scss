@@ -124,6 +124,20 @@ $transform-direction :var(--transform-direction);
     }
 }
 
+.addbtn{
+    cursor: pointer !important;
+    border: solid 1px #30a4e2 !important;
+    svg{
+        color: whitesmoke !important;
+        height: 100%;
+        width: 100%;
+    }
+    @include btnstyle ($bluebtn,$lightcolor,14px,bold,36px,100%);
+    &:hover{
+        background-color: #57C0ED !important;
+    }
+}
+
 .darkbtn{
     border: solid 1px #707070 !important;
     @include btnstyle ($darkbtncolor,$lightcolor,14px,bold,36px,auto);
