@@ -1,9 +1,14 @@
 .product_card_content{
     flex-flow: wrap; 
-    gap: 30px 20px;
+    // gap: 30px 20px;
+    justify-content: flex-start !important;
+    height: auto !important;
     .card{
-        width: 300px !important;
-        min-width: 300px;
+       
+
+    }
+    .maincard{
+        margin: 20px;
     }
     .link{
         font-size: 14px;

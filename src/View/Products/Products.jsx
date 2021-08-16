@@ -135,7 +135,7 @@ const openbag=()=>{
     setbag(true)
 }
     return (
-        <Container>
+        <Container className='BodyPages'>
             <ul className='filterbox'>
                 {filterlist && filterlist.length>0 && filterlist.map((item , index)=>
                    <li>
@@ -146,7 +146,7 @@ const openbag=()=>{
                    </li>
                 )}
             </ul>
-            <Grid container className="BodyPages product_card_content">
+            <Grid container className=" product_card_content">
                 {products && products.map((item, index) => {
                     return(
                         <Card key={index} 

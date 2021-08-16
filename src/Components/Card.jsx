@@ -18,8 +18,8 @@ import { MessageLang } from '../Languages/Provider';
 const ProductCard = ({ item, loading, UserData, DeletePost, AddToBag }) => {
 
     return (
-        <Grid item xs={2} className='card'>
-            <Card >
+        <Grid item xs={3} className='card'>
+            <Card className='maincard'>
                 <CardActionArea>
                     <CardMedia
                         component="img"

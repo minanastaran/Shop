@@ -48,8 +48,22 @@ const MyBag = ({ show, close }) => {
   };
 
   const sendtofactor = () => {
-    history.push('/Invoice')
-    handleClose()
+    if(globaldata.myorders){
+      axios.post('http://localhost:5000/sale/invoice',{
+          'userid':globaldata.userdata.userId,
+          'orderid':globaldata.myorders._id,
+          'order':globaldata.myorders
+      })
+      .then(function (response) {
+          //handle success
+          history.push('/Invoice')
+          handleClose()
+      })
+      .catch(function (response) {
+          //handle error
+          console.log(response);
+      });
+     }
   }
 
   const DeleteOrderitem = (id, price) => {
