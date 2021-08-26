@@ -1,6 +1,11 @@
 .invoice{
     margin-bottom: 40px;
 }
+.sold{
+    background-color: #e3e3e3;
+    text-decoration: line-through;
+    text-decoration-color: #5b5b5b;
+}
 .invoicebtns{
     justify-content: center;
     display: flex;

@@ -9,11 +9,15 @@ import FileUpload from '../../../Components/FileUpload/FileUpload'
 import Modal from '../../../Components/Modal/Modal'
 import { MessageLang } from '../../../Languages/Provider';
 import FormData from 'formdata';
+//Redux
+import { useSelector , useDispatch } from 'react-redux';
+import {ShowProductList , DeleteProductById} from '../../../Redux/action/productAction'
 
 const Profile = () => {
 
     const userid=useParams().uid
-
+    const dispatch =useDispatch()
+    
     const UserData=JSON.parse(window.localStorage.getItem("UserData"))
     const [user,setuser]=useState()
     const [loading, setloading] = useState(false)
@@ -48,25 +52,26 @@ const Profile = () => {
     }, [])
 
     const DeletePost=(delete_productById)=>{
-        axios.delete(`http://localhost:5000/Products/Delete`,{
-            data:{
-                'id':delete_productById
-            },
-            headers: {
-                'Authorization': `Basic ${UserData.token}` 
-              }
-        })
-        .then(function (response) {
-            //handle success
-            console.log(response.data.message);
-            setproducts(prevproducts =>
-                prevproducts.filter(post => post._id !== delete_productById)    
-            )
-        })
-        .catch(function (response) {
-            //handle error
-            console.log(response);
-        });
+        dispatch(DeleteProductById(delete_productById,UserData.token))
+        // axios.delete(`http://localhost:5000/Products/Delete`,{
+        //     data:{
+        //         'id':delete_productById
+        //     },
+        //     headers: {
+        //         'Authorization': `Basic ${UserData.token}` 
+        //       }
+        // })
+        // .then(function (response) {
+        //     //handle success
+        //     console.log(response.data.message);
+        //     setproducts(prevproducts =>
+        //         prevproducts.filter(post => post._id !== delete_productById)    
+        //     )
+        // })
+        // .catch(function (response) {
+        //     //handle error
+        //     console.log(response);
+        // });
     }
 
     const EditProfileImage=()=>{

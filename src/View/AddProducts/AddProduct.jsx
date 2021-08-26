@@ -9,7 +9,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 import { Check_FileUpload } from '../../Util/Check_FileUpload';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-
+//Redux
+import { useDispatch } from 'react-redux';
+import {AddNewProduct} from '../../Redux/action/productAction'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 const AddProduct = (props) => {
 
+    const dispatch = useDispatch()
     const history = useHistory()
     const UserData = JSON.parse(window.localStorage.getItem('UserData'))
     const [loading, setloading] = useState(false)
@@ -51,7 +54,7 @@ const AddProduct = (props) => {
 
     useEffect(() => {
         updateCatList()
-    }, [])
+    }, [dispatch])
 
     const updateCatList=()=>{
         axios.get('http://localhost:5000/Manage/showcats') 
@@ -102,34 +105,41 @@ const AddProduct = (props) => {
 
         let img=file_main
         let totalimg=img.concat(file_gallery)
-
+        
+        let soldprice =data.sold_price==='' ? 0 : parseInt(data.sold_price)
         setloading(true)
-        const FormData=require('form-data');
-        const form =new FormData();
-        form.append('title',data.title)
-        form.append('desc',data.desc)
-        form.append('price',parseInt(data.price))
-        form.append('sold_price',data.sold_price==='' ? 0 : parseInt(data.sold_price))
-        form.append('count',parseInt(data.count))
-        form.append('cat',data.cat)
-        form.append('catitem',data.catitem)
-        // form.append('image',file_main)y
+        dispatch(AddNewProduct(data.title,data.desc,parseInt(data.price),soldprice,parseInt(data.count),data.cat,data.catitem,totalimg,UserData.userId))
+        
+        setloading(false)
+        history.push('/Products')
+       
+       
+        // const FormData=require('form-data');
+        // const form =new FormData();
+        // form.append('title',data.title)
+        // form.append('desc',data.desc)
+        // form.append('price',parseInt(data.price))
+        // form.append('sold_price',data.sold_price==='' ? 0 : parseInt(data.sold_price))
+        // form.append('count',parseInt(data.count))
+        // form.append('cat',data.cat)
+        // form.append('catitem',data.catitem)
+        // // form.append('image',file_main)y
+        
+        // for (let i = 0; i < totalimg.length; i++) {
+        //     form.append('image',totalimg[i])
+        // }
 
-        for (let i = 0; i < totalimg.length; i++) {
-            form.append('image',totalimg[i])
-        }
-
-        form.append('creator',UserData.userId)
-        axios.post('http://localhost:5000/Products/Add',form) 
-        .then(function (response) {
-            //handle success
-            setloading(false)
-            history.push('/Products')
-        })
-        .catch(function (response) {
-            //handle error
-            console.log(response);
-        });
+        // form.append('creator',UserData.userId)
+        // axios.post('http://localhost:5000/Products/Add',form) 
+        // .then(function (response) {
+        //     //handle success
+        //     setloading(false)
+        //     history.push('/Products')
+        // })
+        // .catch(function (response) {
+        //     //handle error
+        //     console.log(response);
+        // });
     }
 
     return (
@@ -149,11 +159,12 @@ const AddProduct = (props) => {
                         />}
                         <Autocomplete
                             id=""
+                            freeSolo
                             options={showallcatitem}
                             className='marginright'
                             getOptionLabel={(option) => option._id}
                             style={{ width: 300 }}
-                            onChange={(e,newvalue)=>setdata({...data , catitem:newvalue._id})}
+                            onChange={(e,newvalue)=>setdata({...data , catitem:newvalue && newvalue._id?newvalue._id:''})}
                             renderInput={(params) => <TextField {...params} label="زیر دسته" variant="outlined" />}
                         />
                     </Box>

@@ -9,12 +9,14 @@ import MyBag from '../View/MyBag/MyBag';
 import image1 from '../image/download (1).jfif'
 //GS
 import { DataContext } from '../GlobalState/DataContext';
-
+//Redux
+import { useSelector , useDispatch } from 'react-redux';
 
 const Header = ({match}) => {
 
     const globaldata = useContext(DataContext)
     const history=useHistory()
+    const mybag=useSelector((state)=> state.sale.orderitem)
     let loginstate= globaldata.isLogged //JSON.parse(window.localStorage.getItem('UserData'))
     let userdata = globaldata.userdata
     const [showbag,setshowbag]=useState(false)
@@ -34,29 +36,6 @@ const Header = ({match}) => {
     const openbag=()=>{
         setshowbag(true)
     }
-
-
-    //axios
-    // const itemlist=[{
-    //     _id:1,
-    //     title:'کالا1',
-    //     img:image1,
-    //     count:1,
-    //     price:3000,
-    // },{
-    //     _id:2,
-    //     title:'کالا2',
-    //     img:image1,
-    //     count:2,
-    //     price:5000,
-    // },{
-    //     _id:3,
-    //     title:'کالا3',
-    //     img:image1,
-    //     count:1,
-    //     price:5000,
-    // }]
-
 
     return (
         <div className="Header">
@@ -90,7 +69,7 @@ const Header = ({match}) => {
                                 </span>
                             </li>
                             <IconButton onClick={()=>openbag()}>
-                                <Bag number={globaldata.ordercount} icon='bag' />
+                                <Bag number={mybag && mybag.length} icon='bag' />
                             </IconButton>
                             </>
                         :

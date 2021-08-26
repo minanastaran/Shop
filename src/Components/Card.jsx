@@ -18,19 +18,19 @@ import { MessageLang } from '../Languages/Provider';
 const ProductCard = ({ item, loading, UserData, DeletePost, AddToBag }) => {
 
     return (
-        <Grid item xs={3} className='card'>
+        <Grid item xs={3} className='card' key={item._id}>
             <Card className='maincard'>
                 <CardActionArea>
                     <CardMedia
                         component="img"
                         alt="Contemplative Reptile"
                         height="140"
-                        image={`http://localhost:5000/${item.image[0]}`}
-                        title={item.name}
+                        image={item.image && `http://localhost:5000/${item.image[0]}`}
+                        title={item.title}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                            {item.name}
+                            {item.title}
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
                             {item.desc}
@@ -57,7 +57,7 @@ const ProductCard = ({ item, loading, UserData, DeletePost, AddToBag }) => {
                             size="large"
                             className='addbtn'
                             disabled={item.count === 0 ? true : false}
-                            onClick={() => AddToBag(item._id, 1, item.price)}
+                            onClick={() => AddToBag(item._id,item.title,item.image[0], 1, item.price)}
                             fullwidth
                         >
                             {item.count === 0 ? 'ناموجود' : <MessageLang id="AddtoBag" />}

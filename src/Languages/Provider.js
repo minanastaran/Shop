@@ -1,5 +1,8 @@
 import React, { useState, createContext, useContext } from 'react';
 import { languageOptions, dictionaryList } from './langoptions';
+//redux
+import { useDispatch } from 'react-redux';
+import {changeLanguage} from '../Redux/action/langAction.js'
 
 // create the language context with default selected language
 export const LanguageContext = createContext({
@@ -9,6 +12,7 @@ export const LanguageContext = createContext({
 
 // it provides the language context to app
 export function LanguageProvider({ children }) {
+  const dispatch=useDispatch()
   const defaultLanguage = window.localStorage.getItem('lang');
   const [userLanguage, setUserLanguage] = useState(defaultLanguage || 'fa');
 
@@ -18,7 +22,9 @@ export function LanguageProvider({ children }) {
     userLanguageChange: selected => {
       const newLanguage = languageOptions[selected] ? selected : 'fa'
       setUserLanguage(newLanguage);
-      window.localStorage.setItem('lang', newLanguage);
+      // window.location.reload();
+      dispatch(changeLanguage(newLanguage))
+      // window.localStorage.setItem('lang', newLanguage);
     }
   };
   return (
