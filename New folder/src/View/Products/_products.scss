@@ -1,0 +1,45 @@
+.product_card_content{
+    flex-flow: wrap; 
+    // gap: 30px 20px;
+    justify-content: flex-start !important;
+    height: auto !important;
+    .card{
+       
+
+    }
+    .maincard{
+        margin: 20px;
+    }
+    .link{
+        font-size: 14px;
+        color: gray !important;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        div{
+            width: 100% !important;
+        }
+        .actions{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        svg{
+            color:#d20a0a
+        }
+        button{
+            margin:0;
+        }
+    }
+}
+.test{
+    color:red;
+    font-size: 18px;
+}
+
+.filterbox li{
+    display: inline-block;
+    margin: 0px 10px;
+}

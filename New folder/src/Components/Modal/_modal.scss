@@ -1,0 +1,42 @@
+.MuiDialog-container{
+  background-color: rgba(0,0,0,0.5);
+}
+// .modal {
+//   &__header {
+//     &__close-btn {
+//       position: absolute !important;
+//       @include RLDir(null,left,14px);
+//       top: 14px;
+//       width: 32px;
+//       height: 32px;
+//       background-color: #f8f8f8 !important;
+//       color: #475974 !important;
+//     }
+//     height: 65px;
+//     padding: 10px 0 !important;
+//     @include RLDir(padding,right,24px !important);
+//     @include RLDir(padding,left,50px !important);
+//     background-color: #475974;
+//     text-align: $right;
+//     font-stretch: normal;
+//     font-style: normal;
+//     line-height: 1.56;
+//     letter-spacing: normal;
+//     &__title {
+//       @include fontstyle ($lightcolor,16px,bold) 
+//     }
+//     &__sub-title {
+//       @include fontstyle ($lightcolor,12px,300) 
+//     }
+//   }
+// }
+
+
+@media(max-width:600px){
+  .modal__header__title {
+    @include fontstyle (null,16px,bold) 
+  }
+  .modal__header__sub-title{
+    @include fontstyle (null,10px,bold) 
+  }
+}

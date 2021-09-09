@@ -1,0 +1,24 @@
+.productDetails{
+    width: 80%;
+}
+
+.carousel-wrapper {
+    .carousel {
+      .slide {
+        img {
+          height: 330px;
+          width: auto;
+        }
+      }
+    }
+
+    .carousel .slider-wrapper.axis-horizontal .slider {
+        -ms-box-orient: horizontal;
+        display: -moz-flex;
+        display: flex;
+        direction: ltr !important;
+    }
+    .carousel .thumbs {
+        direction: ltr !important;
+    }
+  }

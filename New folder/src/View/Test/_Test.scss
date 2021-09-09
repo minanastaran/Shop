@@ -1,0 +1,9 @@
+.boxcard{
+    padding: 20px;
+    box-shadow: 0 0 10px whitesmoke;
+    &_item{
+        display: flex;
+    width: 500px !important;
+    justify-content: space-between;
+    }
+}

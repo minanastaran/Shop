@@ -1,0 +1,136 @@
+// @import '../View/AddProduct/AddProduct';
+@import './Variables';
+
+//component
+@import '../Components/FileUpload/FileUpload';
+@import '../Components/Modal/modal';
+@import '../Components/GallerySlider/GallerySlider';
+
+@import '../View/Products/products';
+@import '../View/ProductDetails/ProductDetails';
+@import '../View/User/User';
+@import '../View/User/Profile/Profile';
+@import '../View/Test/Test';
+@import '../View/Admin/Addlist';
+@import '../View/MyBag/MyBag';
+@import '../View/Factor/Factor';
+
+body{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+a , *:link{
+    color: inherit !important;
+    text-decoration: auto;
+}
+/*------------------- Header --------------------*/
+.Header{
+    background-color: #414151;
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+.header_container{
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+.header_menu_list ul{
+    margin:0px;
+    padding: 0px;
+}
+.header_menu_list ul li{
+    display: inline-block;
+    padding: 8px 10px;
+}
+.header_menu_list ul li .active {
+    color: whitesmoke !important;
+    text-decoration: auto;
+}
+.header_menu_list ul li:hover{
+    color: whitesmoke;
+    // border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.lang .active{
+    color: whitesmoke !important;
+}
+/*----------------- BodyPages -------------------*/
+.BodyPages{
+    min-height: 80vh;
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    // direction: rtl;
+    padding: 50px 0px 80px;
+}
+.marginright{
+    @include RLDir(margin,left,16px);
+}
+.desc_part{
+    padding:20px 0px;
+    background-color: lightcyan;
+    height: auto;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.Home_grid_part{
+    column-gap: 16px;
+    display: grid;
+    grid-template:auto/auto auto auto;
+    &_towrow{
+        row-gap: 10px;
+        background-color: lightskyblue;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    size: 30px;
+   .first{
+        p{
+            margin-top:0px;
+        margin-bottom: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        }
+   }
+   .tworow{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    &>div{
+        display: flex;
+        // flex-direction: row;
+        svg{
+            @include RLDir(margin,left,16px)
+        }
+        p{
+            margin-top:0px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        span{
+            font-size: 14px;
+        }
+    }
+   }
+}
+
+
+
+
+
+
+/*------------------- Footer --------------------*/
+.Footer{
+    background-color: #cacaca;
+    text-align: center;
+}
+.footer_container{
+    padding: 24px 8px;
+}

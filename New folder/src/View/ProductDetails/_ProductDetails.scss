@@ -1,0 +1,36 @@
+.productDetails{
+    padding: 20px !important;
+    width: 80%;
+    height: auto;
+    position: relative;
+
+    .back{
+        position: absolute;
+        left: 20px;
+    }
+    
+    .MuiCardMedia-media {
+        width: 50%;
+        height: auto;
+    }
+    .footer{
+        display: flex;
+        color: black;
+        justify-content: space-between !important;
+        align-items: flex-end;
+        margin: 0px 20px;
+    }
+    .priceBox{
+        background-color: yellowgreen;
+        width: auto;
+        // max-width: 100px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 8px 10px;
+        &_text{
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    }
+}
